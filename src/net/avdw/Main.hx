@@ -13,7 +13,8 @@ class Main extends Sprite
 	public function new() 
 	{
 		super();
-		addChild(new FloydSteinbergDithering());
+		//addChild(new FloydSteinbergDithering());
+		addChild(new MedianCut());
 	}
 
 }
