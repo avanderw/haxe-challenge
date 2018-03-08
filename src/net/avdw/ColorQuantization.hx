@@ -4,7 +4,7 @@ package net.avdw;
  * ...
  * @author Andrew van der Westhuizen
  */
-class MeanCut 
+class ColorQuantization 
 {
 
 	public function new() 

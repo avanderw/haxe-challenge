@@ -1,6 +1,7 @@
 package net.avdw;
 
 /**
+ * http://www.easyrgb.com/en/math.php
  * ...
  * @author Andrew van der Westhuizen
  */
@@ -69,5 +70,4 @@ class Color
 	public function refreshValue():Void {
 		value = r << 16 | g << 8 | b << 0;
 	}
-
 }
