@@ -10,6 +10,10 @@ class Color
 	public var r:Int;
 	public var g:Int;
 	public var b:Int;
+	public var h:Float;
+	public var s:Float;
+	public var l:Float;
+	public var v:Float;
 	public var value:UInt;
 
 	function new()
