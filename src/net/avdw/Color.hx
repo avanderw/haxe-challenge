@@ -65,5 +65,9 @@ class Color
 		
 		return this;
 	}
+	
+	public function refreshValue():Void {
+		value = r << 16 | g << 8 | b << 0;
+	}
 
 }
