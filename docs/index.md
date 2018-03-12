@@ -8,3 +8,13 @@
     </li>
   {% endfor %}
 </ul>
+
+
+<ul>
+  {% for category in site.categories %}
+    <li>
+      <a href="{{ category.url | absolute_url }}">{{ category.title }}</a>
+	  {{ category.excerpt }}
+    </li>
+  {% endfor %}
+</ul>
