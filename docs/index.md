@@ -12,6 +12,7 @@
 
 <ul>
   {% for category in site.categories %}
+  {{ category }}
     <li>
       <a href="{{ category.url | absolute_url }}">{{ category.title }}</a>
 	  {{ category.excerpt }}
