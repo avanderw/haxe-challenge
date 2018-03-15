@@ -1,5 +1,7 @@
 # haxe challenge
 
+some text
+
 <ul>
   {% for page in site.pages %}
     <li>
