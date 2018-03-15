@@ -3,10 +3,10 @@
 some text
 
 <ul>
-  {% for page in site.pages %}
+  {% for item in site.pages %}
     <li>
-      <a href="{{ page.url | absolute_url }}">{{ page.title }}</a>
-	  {{ page.excerpt }}
+      <a href="{{ item.url | absolute_url }}">{{ item.title }} - {{item.url}}</a>
+	  {{ item.excerpt }}
     </li>
   {% endfor %}
 </ul>
