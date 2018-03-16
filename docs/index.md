@@ -1,12 +1,13 @@
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+[Home](/haxe-challenge)
+{% for crumb in crumbs offset: 1 %}{% if forloop.last %} / {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }} {% else %} / [{{ crumb | replace:'-',' ' | remove:'.html' | split: " " | join: "-----" | camelcase | split: "-----" | join: " " }}]({% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}"){% endif %}{% endfor %}
+
 # haxe challenge
 
 some text
 
 <ul>
-  {% for item in site.pages %}
     <li>
-      <a href="{{ item.url | absolute_url }}">{{ item.title }} - {{item.url}}</a>
-	  {{ item.excerpt }}
+      <a href="/floyd-steinberg-dithering">Floyd Steinberg Dithering</a>
     </li>
-  {% endfor %}
 </ul>
