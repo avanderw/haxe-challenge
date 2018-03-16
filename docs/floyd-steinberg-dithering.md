@@ -1,7 +1,3 @@
----
-layout: page
----
-
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
 [Home](/haxe-challenge)
