@@ -1,4 +1,5 @@
 package net.avdw;
+import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.utils.Assets;
@@ -16,11 +17,16 @@ class ColorQuantization extends Sprite
 		var orig = Assets.getBitmapData("img/def611c3-b108-484f-85cc-38d208242101.jpg");
 		var filter = orig.clone();
 		quantize(filter);
+		
+		addChild(new Bitmap(orig));
+		var bmp = new Bitmap(filter);
+		bmp.x = 520;
+		addChild(bmp);
 	}
 
 	function quantize(bmd:BitmapData):BitmapData
 	{
-		var palette:Array<Color> = meadianCut(bmd);
+		var palette:Array<Color> = MedianCut.cut(bmd, 3);
 
 		for (y in 0...bmd.height)
 		{
@@ -35,7 +41,7 @@ class ColorQuantization extends Sprite
 
 	function meadianCut(bmd:BitmapData):Array<Color>
 	{
-		return new Array();
+		return [Color.fromRGB(0, 0, 0), Color.fromRGB(255, 255, 255)];
 	}
 
 	function nearestNeighbour(palette:Array<Color>, color:Color):UInt

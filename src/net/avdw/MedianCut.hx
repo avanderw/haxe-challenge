@@ -39,7 +39,7 @@ class MedianCut extends Sprite
 			addChild(bmp);
 			idx++;
 		}
-		
+
 		var idx:Int = 0;
 		for (bucket in splitByMean(origBucket, splitCount))
 		{
@@ -55,7 +55,31 @@ class MedianCut extends Sprite
 		addChild(origBmp);
 	}
 
-	function averageColor(bucket:Array<Color>):Color
+	static public function cut(bmd:BitmapData, numCuts:Int):Array<Color>
+	{
+		var colors:Array<Color> = new Array();
+		for (bucket in splitByMedian(createBucket(bmd), numCuts))
+		{
+			colors.push(averageColor(bucket));
+		}
+		return colors;
+	}
+
+	static function createBucket(bmd:BitmapData):Array<Color>
+	{
+		var bucket:Array<Color> = new Array();
+		for (y in 0...bmd.height)
+		{
+			for (x in 0...bmd.width)
+			{
+				var pixel = Color.fromValue(bmd.getPixel(x, y));
+				bucket.push(pixel);
+			}
+		}
+		return bucket;
+	}
+
+	static function averageColor(bucket:Array<Color>):Color
 	{
 		var average = Color.fromRGB(0, 0, 0);
 
@@ -74,7 +98,7 @@ class MedianCut extends Sprite
 		return average;
 	}
 
-	function splitByMedian(bucket:Array<Color>, count:Int):Array<Array<Color>>
+	static function splitByMedian(bucket:Array<Color>, count:Int):Array<Array<Color>>
 	{
 		bucket.sort(largestRange(bucket).sortFn);
 		var buckets:Array<Array<Color>> = new Array();
@@ -130,7 +154,7 @@ class MedianCut extends Sprite
 		return buckets;
 	}
 
-	function largestRange(bucket:Array<Color>):RangeSort
+	static function largestRange(bucket:Array<Color>):RangeSort
 	{
 		var min = Color.fromRGB(255,255,255);
 		var max = Color.fromRGB(0, 0, 0);
