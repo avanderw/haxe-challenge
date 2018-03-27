@@ -49,10 +49,10 @@ class FloydSteinbergDithering extends Sprite
 				var errColor = Color.subtract(origColor, newColor);
 
 				filter.setPixel(x, y, newColor.value);
-				filter.setPixel(x + 1, y + 0, Color.add(Color.fromValue(filter.getPixel(x + 1, y + 0)), errColor.scaleSelf(7/16)).value);
-				filter.setPixel(x - 1, y + 1, Color.add(Color.fromValue(filter.getPixel(x - 1, y + 1)), errColor.scaleSelf(3/16)).value);
-				filter.setPixel(x + 0, y + 1, Color.add(Color.fromValue(filter.getPixel(x + 0, y + 1)), errColor.scaleSelf(5/16)).value);
-				filter.setPixel(x + 1, y + 1, Color.add(Color.fromValue(filter.getPixel(x + 1, y + 1)), errColor.scaleSelf(1/16)).value);	
+				filter.setPixel(x + 1, y + 0, Color.add(Color.fromValue(filter.getPixel(x + 1, y + 0)), Color.scale(errColor, 7 / 16)).value);
+				filter.setPixel(x - 1, y + 1, Color.add(Color.fromValue(filter.getPixel(x - 1, y + 1)), Color.scale(errColor, 3 / 16)).value);
+				filter.setPixel(x + 0, y + 1, Color.add(Color.fromValue(filter.getPixel(x + 0, y + 1)), Color.scale(errColor, 5 / 16)).value);
+				filter.setPixel(x + 1, y + 1, Color.add(Color.fromValue(filter.getPixel(x + 1, y + 1)), Color.scale(errColor, 1 / 16)).value);
 			}
 		}
 	}

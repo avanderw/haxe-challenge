@@ -39,11 +39,6 @@ class ColorQuantization extends Sprite
 		return bmd;
 	}
 
-	function meadianCut(bmd:BitmapData):Array<Color>
-	{
-		return [Color.fromRGB(0, 0, 0), Color.fromRGB(255, 255, 255)];
-	}
-
 	function nearestNeighbour(palette:Array<Color>, color:Color):UInt
 	{
 		var nearest:UInt = 0;

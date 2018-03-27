@@ -54,10 +54,20 @@ class Color
 	
 	static public function add(a:Color, b:Color):Color {
 		var c:Color = new Color();
-		c.r = a.r + b.r;
-		c.g = a.g + b.g;
-		c.b = a.b + b.b;
+		c.r = cast Math.max(0, Math.min(255, a.r + b.r));
+		c.g = cast Math.max(0, Math.min(255, a.g + b.g));
+		c.b = cast Math.max(0, Math.min(255, a.b + b.b));
 		c.value = c.r << 16 | c.g << 8 | c.b << 0;
+		
+		return c;
+	}
+	
+	static public function scale(a:Color, factor:Float):Color {		
+		var c:Color = new Color();
+		c.r = Math.round(a.r * factor);
+		c.g = Math.round(a.g * factor);
+		c.b = Math.round(a.b * factor);
+		c.value = a.r << 16 | a.g << 8 | a.b << 0;
 		
 		return c;
 	}
